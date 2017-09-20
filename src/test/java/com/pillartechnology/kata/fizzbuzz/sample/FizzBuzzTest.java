@@ -35,4 +35,14 @@ public class FizzBuzzTest {
     public void testSixEqualsBuzz(){
         assertEquals("Fizz", FizzBuzz.convert(6));
     }
+
+    @Test
+    public void testSevenEqualsStringSeven(){
+        assertEquals("7", FizzBuzz.convert(7));
+    }
+
+    @Test
+    public void testEightEqualsStringEight(){
+        assertEquals("8", FizzBuzz.convert(8));
+    }
 }
