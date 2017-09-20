@@ -25,4 +25,9 @@ public class FizzBuzzTest {
     public void testFourEqualsStringFour(){
         assertEquals("4", FizzBuzz.convert(4));
     }
+
+    @Test
+    public void testFiveEqualsBuzz(){
+        assertEquals("Buzz", FizzBuzz.convert(5));
+    }
 }
