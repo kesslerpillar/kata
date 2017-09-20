@@ -45,4 +45,9 @@ public class FizzBuzzTest {
     public void testEightEqualsStringEight(){
         assertEquals("8", FizzBuzz.convert(8));
     }
+
+    @Test
+    public void testNineEqualsFizz(){
+        assertEquals("Fizz", FizzBuzz.convert(9));
+    }
 }
