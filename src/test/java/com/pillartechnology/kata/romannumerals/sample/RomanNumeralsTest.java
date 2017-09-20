@@ -1,6 +1,5 @@
 package com.pillartechnology.kata.romannumerals.sample;
 
-import com.pillartechnology.kata.romannumerals.initial.RomanNumerals;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

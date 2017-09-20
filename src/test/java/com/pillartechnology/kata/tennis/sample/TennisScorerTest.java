@@ -1,6 +1,5 @@
 package com.pillartechnology.kata.tennis.sample;
 
-import com.pillartechnology.kata.tennis.initial.TennisScorer;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

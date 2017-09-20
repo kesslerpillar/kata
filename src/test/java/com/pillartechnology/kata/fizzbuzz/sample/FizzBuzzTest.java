@@ -1,6 +1,5 @@
 package com.pillartechnology.kata.fizzbuzz.sample;
 
-import com.pillartechnology.kata.fizzbuzz.initial.FizzBuzz;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class FizzBuzzTest {
 
     @Test
-    public void testPlaceholder(){
-        assertEquals("", FizzBuzz.convert(1));
+    public void testOneEqualsStringOne(){
+        assertEquals("1", FizzBuzz.convert(1));
     }
 }
