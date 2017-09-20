@@ -1,6 +1,5 @@
-package com.pillartechnology.kata.tennis.sample;
+package com.pillartechnology.kata.tennis.initial;
 
-import com.pillartechnology.kata.romannumerals.sample.RomanNumerals;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

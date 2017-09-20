@@ -1,4 +1,4 @@
-package com.pillartechnology.kata.fizzbuzz.sample;
+package com.pillartechnology.kata.fizzbuzz.initial;
 
 import org.junit.Test;
 
