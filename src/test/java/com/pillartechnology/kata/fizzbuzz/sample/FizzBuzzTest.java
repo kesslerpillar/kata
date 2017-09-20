@@ -75,4 +75,9 @@ public class FizzBuzzTest {
     public void testFourteenEqualsStringFourteen(){
         assertEquals("14", FizzBuzz.convert(14));
     }
+
+    @Test
+    public void testFifteenEqualsFizzBuzz(){
+        assertEquals("FizzBuzz", FizzBuzz.convert(15));
+    }
 }

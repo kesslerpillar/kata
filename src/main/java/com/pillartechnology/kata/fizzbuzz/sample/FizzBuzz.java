@@ -2,9 +2,13 @@ package com.pillartechnology.kata.fizzbuzz.sample;
 
 public class FizzBuzz {
     public static String convert(int number) {
-        if(isDivisible(number, 3)) return "Fizz";
-        if(isDivisible(number, 5)) return "Buzz";
-        return Integer.toString(number);
+        String output = "";
+
+        if(isDivisible(number, 3)) output += "Fizz";
+        if(isDivisible(number, 5)) output += "Buzz";
+        if(output.isEmpty()) output += Integer.toString(number);
+        
+        return output;
     }
 
     private static boolean isDivisible(int number, int by) {
