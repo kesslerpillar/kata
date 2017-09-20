@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+mainClassName = "com.sample.app.Main"
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java'
+        }
+    }
+
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+    }
+}
+
+dependencies {
+    compile 'joda-time:joda-time:2.5'
+    testCompile 'org.easytesting:fest-assert:1.4'
+    testCompile 'junit:junit:4.11'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+// create Gradle wrapper with command line `gradle wrapper` in terminal
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
