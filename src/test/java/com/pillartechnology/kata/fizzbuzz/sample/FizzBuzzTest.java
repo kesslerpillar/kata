@@ -10,4 +10,9 @@ public class FizzBuzzTest {
     public void testOneEqualsStringOne(){
         assertEquals("1", FizzBuzz.convert(1));
     }
+
+    @Test
+    public void testTwoEqualsStringTwo(){
+        assertEquals("2", FizzBuzz.convert(2));
+    }
 }
