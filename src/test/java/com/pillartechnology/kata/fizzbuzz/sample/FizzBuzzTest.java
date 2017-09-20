@@ -15,4 +15,9 @@ public class FizzBuzzTest {
     public void testTwoEqualsStringTwo(){
         assertEquals("2", FizzBuzz.convert(2));
     }
+
+    @Test
+    public void testThreeEqualsFizz(){
+        assertEquals("Fizz", FizzBuzz.convert(3));
+    }
 }
