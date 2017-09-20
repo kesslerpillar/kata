@@ -20,4 +20,9 @@ public class FizzBuzzTest {
     public void testThreeEqualsFizz(){
         assertEquals("Fizz", FizzBuzz.convert(3));
     }
+
+    @Test
+    public void testFourEqualsStringFour(){
+        assertEquals("4", FizzBuzz.convert(4));
+    }
 }
