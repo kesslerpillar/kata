@@ -50,4 +50,9 @@ public class FizzBuzzTest {
     public void testNineEqualsFizz(){
         assertEquals("Fizz", FizzBuzz.convert(9));
     }
+
+    @Test
+    public void testTenEqualsBuzz(){
+        assertEquals("Buzz", FizzBuzz.convert(10));
+    }
 }
