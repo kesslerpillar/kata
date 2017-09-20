@@ -7,7 +7,7 @@ public class FizzBuzz {
         if(isDivisible(number, 3)) output += "Fizz";
         if(isDivisible(number, 5)) output += "Buzz";
         if(output.isEmpty()) output += Integer.toString(number);
-        
+
         return output;
     }
 

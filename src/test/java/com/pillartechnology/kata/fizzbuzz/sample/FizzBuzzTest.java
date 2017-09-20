@@ -80,4 +80,9 @@ public class FizzBuzzTest {
     public void testFifteenEqualsFizzBuzz(){
         assertEquals("FizzBuzz", FizzBuzz.convert(15));
     }
+
+    @Test
+    public void testSixteenEqualsStringSixteen(){
+        assertEquals("16", FizzBuzz.convert(16));
+    }
 }
