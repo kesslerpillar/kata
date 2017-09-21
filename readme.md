@@ -27,3 +27,13 @@ basically a way to build your code on Linux/Mac/Windows easily.
    prompt/kata> gradlew.bat clean 
    prompt/kata> gradlew.bat test
    ```
+   
+## How This Project is Organized
+- Where to Start?
+    - Instructions are available in src/**test**/java/com/pillar/kata/\<*kata name*\>/\<*kata name*\>.md
+    - Start with the placeholder test in src/**test**/java/com/pillar/kata/\<*kata name*\>/**initial**/\<*KataName*\>Test.java
+    - The placeholder implementation class is in src/**main**/java/com/pillar/kata/\<*kata name*\>/**initial**/\<*KataName*\>.java
+    - *Drive your TDD solution from the initial test class.*
+- Help!
+    - A sample completed test is available in src/**test**/java/com/pillar/kata/\<*kata name*\>/**sample**/\<*KataName*\>Test.java
+    - A sample completed implementation is available in src/**main**/java/com/pillar/kata/\<*kata name*\>/**sample**/\<*KataName*\>.java
