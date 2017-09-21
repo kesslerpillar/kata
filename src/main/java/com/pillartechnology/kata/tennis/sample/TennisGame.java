@@ -30,6 +30,7 @@ public class TennisGame {
     public String calculateScore() {
         if (playerOne.getBalls() >= 3 && playerOne.getBalls() == playerTwo.getBalls()) return "Deuce";
 
+        if (playerOne.getBalls() == 4 && playerTwo.getBalls() == 5) return "Advantage " + playerTwo.getName();
         if (playerOne.getBalls() == 4) return playerOne.getName() + " Wins";
         if (playerTwo.getBalls() == 4) return playerTwo.getName() + " Wins";
 
