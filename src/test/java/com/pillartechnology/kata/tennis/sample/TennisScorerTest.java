@@ -16,19 +16,35 @@ public class TennisScorerTest {
 
     @Test
     public void testNewGameShouldReturnLoveAll() {
+        setupScore(0, 0);
         assertEquals("Love All", game.calculateScore());
     }
 
     @Test
     public void testPlayerOneWinsFirstBall() {
-        game.playerOneScores();
+        setupScore(1, 0);
         assertEquals("Fifteen, Love", game.calculateScore());
     }
 
     @Test
     public void testFifteenAll() {
-        game.playerOneScores();
-        game.playerTwoScores();
+        setupScore(1, 1);
         assertEquals("Fifteen All", game.calculateScore());
+    }
+
+    @Test
+    public void testPlayerTwoWinsFirstTwoBalls() {
+        setupScore(0, 2);
+        assertEquals("Love, Thirty", game.calculateScore());
+    }
+
+    private void setupScore(int playerOneBalls, int playerTwoBalls) {
+        for (int i = 0; i < playerOneBalls; i++) {
+            game.playerOneScores();
+        }
+
+        for (int i = 0; i < playerTwoBalls; i++) {
+            game.playerTwoScores();
+        }
     }
 }
