@@ -9,7 +9,6 @@ public class TennisScorerTest {
     @Test
     public void testNewGameShouldReturnLoveAll() {
         TennisGame game = new TennisGame("Player 1" , "Player 2");
-        String score = game.calculateScore();
-        assertEquals("Love all", score);
+        assertEquals("Love all", game.calculateScore());
     }
 }
