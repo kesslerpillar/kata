@@ -17,7 +17,7 @@ This Kata is about implementing a simple tennis game.
 
 Sample Scores
 
-- new game = 'Love all'
+- new game = 'Love All'
 - player one scores = 'Fifteen, Love'
 - both players score 3 time = 'Deuce'
 - player one scores 4 times and player two scores once = '<Player 1's Name> wins'

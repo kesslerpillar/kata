@@ -16,7 +16,7 @@ public class TennisScorerTest {
 
     @Test
     public void testNewGameShouldReturnLoveAll() {
-        assertEquals("Love all", game.calculateScore());
+        assertEquals("Love All", game.calculateScore());
     }
 
     @Test
@@ -29,6 +29,6 @@ public class TennisScorerTest {
     public void testFifteenAll() {
         game.playerOneScores();
         game.playerTwoScores();
-        assertEquals("Fifteen all", game.calculateScore());
+        assertEquals("Fifteen All", game.calculateScore());
     }
 }
