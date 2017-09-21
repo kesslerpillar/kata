@@ -19,38 +19,57 @@ public class TennisGame {
         });
     }
 
-    private int playerOneScore;
-    private int playerTwoScore;
-    private String playerOneName;
-    private String playerTwoName;
+    private Player playerOne;
+    private Player playerTwo;
 
     public TennisGame(String playerOneName, String playerTwoName) {
-        this.playerOneName = playerOneName;
-        this.playerTwoName = playerTwoName;
-        playerOneScore = 0;
-        playerTwoScore = 0;
+        playerOne = new Player(playerOneName);
+        playerTwo = new Player(playerTwoName);
     }
 
     public String calculateScore() {
-        if (playerOneScore == 4) return playerOneName + " Wins";
-        if (playerTwoScore == 4) return playerTwoName + " Wins";
+        if (playerOne.getBalls() == 4) return playerOne.getName() + " Wins";
+        if (playerTwo.getBalls() == 4) return playerTwo.getName() + " Wins";
 
-        if (playerOneScore == 3 && playerTwoScore == 3) return "Deuce";
+        if (playerOne.getBalls() == 3 && playerTwo.getBalls() == 3) return "Deuce";
 
-        if(playerOneScore == playerTwoScore) return calculateScore(playerOneScore) + " All";
+        if (playerOne.getBalls() == playerTwo.getBalls()) return calculateScore(playerOne.getBalls()) + " All";
 
-        return calculateScore(playerOneScore) + ", " + calculateScore(playerTwoScore);
+        return calculateScore(playerOne.getBalls()) + ", " + calculateScore(playerTwo.getBalls());
     }
 
     public void playerOneScores() {
-        playerOneScore++;
+        playerOne.addBall();
     }
 
     public void playerTwoScores() {
-        playerTwoScore++;
+        playerTwo.addBall();
     }
 
     private String calculateScore(int balls){
         return scoreTranslation.get(balls);
+    }
+
+    private class Player {
+
+        private String name;
+        private int balls;
+
+        Player(String name) {
+            this.name = name;
+            balls = 0;
+        }
+
+        private String getName() {
+            return name;
+        }
+
+        private int getBalls() {
+            return balls;
+        }
+
+        private void addBall() {
+            balls++;
+        }
     }
 }
