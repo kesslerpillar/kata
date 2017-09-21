@@ -7,8 +7,9 @@ import static org.junit.Assert.assertEquals;
 public class TennisScorerTest {
 
     @Test
-    public void testPlaceholder(){
-        TennisScorer tennisScorer = new TennisScorer();
-        assertEquals("", tennisScorer.score());
+    public void testNewGameShouldReturnLoveAll() {
+        TennisGame game = new TennisGame("Player 1" , "Player 2");
+        String score = game.calculateScore();
+        assertEquals("Love all", score);
     }
 }
