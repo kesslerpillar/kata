@@ -57,18 +57,30 @@ public class TennisGame {
     }
 
     private boolean hasAdvantage() {
-        return playerTwo.getBalls() >= 4 && playerOne.getBalls() == (playerTwo.getBalls() + 1)
-                || playerOne.getBalls() >= 4 && playerTwo.getBalls() == (playerOne.getBalls() + 1);
+        return atLeastFour(playerTwo) && leadingByOne(playerOne, playerTwo)
+                || atLeastFour(playerOne) && leadingByOne(playerTwo, playerOne);
+    }
+
+    private boolean leadingByOne(Player player, Player comparisonPlayer) {
+        return player.getBalls() == (comparisonPlayer.getBalls() + 1);
+    }
+
+    private boolean atLeastFour(Player player) {
+        return player.getBalls() >= 4;
     }
 
     private String playerWithHighestScore() {
-        if (playerOne.getBalls() > playerTwo.getBalls()) return playerOne.getName();
+        if (ahead(playerOne, playerTwo)) return playerOne.getName();
         return playerTwo.getName();
     }
 
+    private boolean ahead(Player player, Player comparisonPlayer) {
+        return player.getBalls() > comparisonPlayer.getBalls();
+    }
+
     private boolean hasWinner() {
-        return playerTwo.getBalls() >= 4 && playerTwo.getBalls() >= playerOne.getBalls() + 2
-                || playerOne.getBalls() >= 4 && playerOne.getBalls() >= playerTwo.getBalls() + 2;
+        return atLeastFour(playerTwo) && playerTwo.getBalls() >= playerOne.getBalls() + 2
+                || atLeastFour(playerOne) && playerOne.getBalls() >= playerTwo.getBalls() + 2;
     }
 
     private class Player {
