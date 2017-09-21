@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TennisScorerTest {
+public class TennisGameTest {
 
     @Test
     public void testPlaceholder(){
-        TennisScorer tennisScorer = new TennisScorer();
-        assertEquals("", tennisScorer.score());
+        TennisGame tennisScorer = new TennisGame();
+        assertEquals("", tennisScorer.calculateScore());
     }
 }
