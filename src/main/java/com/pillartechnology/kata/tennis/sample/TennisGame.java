@@ -57,7 +57,7 @@ public class TennisGame {
     }
 
     private boolean hasAdvantage() {
-        return playerTwo.getBalls() == 4 && playerOne.getBalls() == 5
+        return playerTwo.getBalls() >= 4 && playerOne.getBalls() == (playerTwo.getBalls() + 1)
                 || playerOne.getBalls() >= 4 && playerTwo.getBalls() == (playerOne.getBalls() + 1);
     }
 

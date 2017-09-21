@@ -81,6 +81,12 @@ public class TennisScorerTest {
     }
 
     @Test
+    public void testPlayerOneAdvantageSixToFive() {
+        setupScore(6, 5);
+        assertEquals("Advantage Player 1", game.calculateScore());
+    }
+
+    @Test
     public void testPlayerOneAdvantage() {
         setupScore(5, 4);
         assertEquals("Advantage Player 1", game.calculateScore());
