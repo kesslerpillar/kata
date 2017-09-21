@@ -74,6 +74,12 @@ public class TennisScorerTest {
         assertEquals("Advantage Player 2", game.calculateScore());
     }
 
+    @Test
+    public void testPlayerOneAdvantage() {
+        setupScore(5, 4);
+        assertEquals("Advantage Player 1", game.calculateScore());
+    }
+
     private void setupScore(int playerOneBalls, int playerTwoBalls) {
         for (int i = 0; i < playerOneBalls; i++) {
             game.playerOneScores();
