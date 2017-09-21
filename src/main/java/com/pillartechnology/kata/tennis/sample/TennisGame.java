@@ -58,7 +58,7 @@ public class TennisGame {
 
     private boolean hasAdvantage() {
         return playerTwo.getBalls() == 4 && playerOne.getBalls() == 5
-                || playerOne.getBalls() == 4 && playerTwo.getBalls() == 5;
+                || playerOne.getBalls() >= 4 && playerTwo.getBalls() == (playerOne.getBalls() + 1);
     }
 
     private String playerWithHighestScore() {
