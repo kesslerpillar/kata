@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class RomanNumeralsTest {
 
     @Test
-    public void testPlaceholder(){
-        assertEquals("", RomanNumerals.convert(1));
+    public void testOneEqualsI() {
+        assertEquals("I", RomanNumerals.convert(1));
     }
 }
