@@ -32,8 +32,8 @@ public class TennisGame {
 
         if (hasAdvantage()) return "Advantage " + playerWithHighestScore();
         if (hasAdvantage()) return "Advantage " + playerWithHighestScore();
-        if (playerOne.getBalls() == 4) return playerOne.getName() + " Wins";
-        if (playerTwo.getBalls() == 4) return playerTwo.getName() + " Wins";
+        if (hasWinner()) return playerWithHighestScore() + " Wins";
+        if (hasWinner()) return playerWithHighestScore() + " Wins";
 
         if (hasTieGame()) return calculateScoreFor(playerOne) + " All";
 
@@ -64,6 +64,11 @@ public class TennisGame {
     private String playerWithHighestScore() {
         if (playerOne.getBalls() > playerTwo.getBalls()) return playerOne.getName();
         return playerTwo.getName();
+    }
+
+    private boolean hasWinner() {
+        return playerTwo.getBalls() >= 4 && playerTwo.getBalls() >= playerOne.getBalls() + 2
+                || playerOne.getBalls() >= 4 && playerOne.getBalls() >= playerTwo.getBalls() + 2;
     }
 
     private class Player {
