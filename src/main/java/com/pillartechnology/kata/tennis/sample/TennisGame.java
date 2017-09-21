@@ -33,9 +33,9 @@ public class TennisGame {
 
         if (playerOne.getBalls() == 3 && playerTwo.getBalls() == 3) return "Deuce";
 
-        if (playerOne.getBalls() == playerTwo.getBalls()) return calculateScore(playerOne.getBalls()) + " All";
+        if (playerOne.getBalls() == playerTwo.getBalls()) return calculateScoreFor(playerOne) + " All";
 
-        return calculateScore(playerOne.getBalls()) + ", " + calculateScore(playerTwo.getBalls());
+        return calculateScoreFor(playerOne) + ", " + calculateScoreFor(playerTwo);
     }
 
     public void playerOneScores() {
@@ -46,8 +46,8 @@ public class TennisGame {
         playerTwo.addBall();
     }
 
-    private String calculateScore(int balls){
-        return scoreTranslation.get(balls);
+    private String calculateScoreFor(Player player) {
+        return scoreTranslation.get(player.getBalls());
     }
 
     private class Player {
