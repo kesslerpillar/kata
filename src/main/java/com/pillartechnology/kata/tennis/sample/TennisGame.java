@@ -28,10 +28,10 @@ public class TennisGame {
     }
 
     public String calculateScore() {
+        if (playerOne.getBalls() >= 3 && playerOne.getBalls() == playerTwo.getBalls()) return "Deuce";
+
         if (playerOne.getBalls() == 4) return playerOne.getName() + " Wins";
         if (playerTwo.getBalls() == 4) return playerTwo.getName() + " Wins";
-
-        if (playerOne.getBalls() == 3 && playerTwo.getBalls() == 3) return "Deuce";
 
         if (playerOne.getBalls() == playerTwo.getBalls()) return calculateScoreFor(playerOne) + " All";
 
