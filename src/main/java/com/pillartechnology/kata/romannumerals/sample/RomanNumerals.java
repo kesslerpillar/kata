@@ -16,6 +16,7 @@ public class RomanNumerals {
                 put(2, "II");
                 put(3, "III");
                 put(4, "IV");
+                put(5, "V");
             }
         });
     }
