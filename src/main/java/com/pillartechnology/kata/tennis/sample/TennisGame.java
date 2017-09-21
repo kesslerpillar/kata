@@ -28,14 +28,14 @@ public class TennisGame {
     }
 
     public String calculateScore() {
-        if (playerOne.getBalls() >= 3 && playerOne.getBalls() == playerTwo.getBalls()) return "Deuce";
+        if (playerOne.getBalls() >= 3 && hasTieGame()) return "Deuce";
 
-        if (playerTwo.getBalls() == 4 && playerOne.getBalls() == 5) return "Advantage " + playerOne.getName();
-        if (playerOne.getBalls() == 4 && playerTwo.getBalls() == 5) return "Advantage " + playerTwo.getName();
+        if (hasAdvantage()) return "Advantage " + playerWithHighestScore();
+        if (hasAdvantage()) return "Advantage " + playerWithHighestScore();
         if (playerOne.getBalls() == 4) return playerOne.getName() + " Wins";
         if (playerTwo.getBalls() == 4) return playerTwo.getName() + " Wins";
 
-        if (playerOne.getBalls() == playerTwo.getBalls()) return calculateScoreFor(playerOne) + " All";
+        if (hasTieGame()) return calculateScoreFor(playerOne) + " All";
 
         return calculateScoreFor(playerOne) + ", " + calculateScoreFor(playerTwo);
     }
@@ -50,6 +50,20 @@ public class TennisGame {
 
     private String calculateScoreFor(Player player) {
         return scoreTranslation.get(player.getBalls());
+    }
+
+    private boolean hasTieGame() {
+        return playerOne.getBalls() == playerTwo.getBalls();
+    }
+
+    private boolean hasAdvantage() {
+        return playerTwo.getBalls() == 4 && playerOne.getBalls() == 5
+                || playerOne.getBalls() == 4 && playerTwo.getBalls() == 5;
+    }
+
+    private String playerWithHighestScore() {
+        if (playerOne.getBalls() > playerTwo.getBalls()) return playerOne.getName();
+        return playerTwo.getName();
     }
 
     private class Player {
