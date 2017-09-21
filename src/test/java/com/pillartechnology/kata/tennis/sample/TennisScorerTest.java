@@ -24,4 +24,11 @@ public class TennisScorerTest {
         game.playerOneScores();
         assertEquals("Fifteen, Love", game.calculateScore());
     }
+
+    @Test
+    public void testFifteenAll() {
+        game.playerOneScores();
+        game.playerTwoScores();
+        assertEquals("Fifteen all", game.calculateScore());
+    }
 }
