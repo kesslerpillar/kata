@@ -15,4 +15,9 @@ public class RomanNumeralsTest {
     public void testTwoEqualsIi() {
         assertEquals("II", RomanNumerals.convert(2));
     }
+
+    @Test
+    public void testThreeEqualsIii() {
+        assertEquals("III", RomanNumerals.convert(3));
+    }
 }
