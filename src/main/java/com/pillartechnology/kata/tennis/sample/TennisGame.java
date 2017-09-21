@@ -6,8 +6,6 @@ import java.util.Map;
 
 public class TennisGame {
 
-    private int playerOneScore;
-    private int playerTwoScore;
     private static Map<Integer, String> scoreTranslation;
 
     static{
@@ -16,9 +14,13 @@ public class TennisGame {
                 put(0, "Love");
                 put(1, "Fifteen");
                 put(2, "Thirty");
+                put(3, "Forty");
             }
         });
     }
+
+    private int playerOneScore;
+    private int playerTwoScore;
 
     public TennisGame(String playerOneName, String playerTwoName) {
         playerOneScore = 0;
