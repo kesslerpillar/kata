@@ -22,6 +22,15 @@ public class RomanNumerals {
     }
 
     public static String convert(int number) {
-        return translation.get(number);
+        String base = "";
+        String percision = "";
+
+        if (number > 5) {
+            base = translation.get(5);
+            percision = translation.get(number - 5);
+        } else {
+            base = translation.get(number);
+        }
+        return base + percision;
     }
 }
