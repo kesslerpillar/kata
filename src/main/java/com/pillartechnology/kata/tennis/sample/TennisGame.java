@@ -28,6 +28,7 @@ public class TennisGame {
     }
 
     public String calculateScore() {
+        if (playerOneScore == 3 && playerTwoScore == 3) return "Deuce";
         if(playerOneScore == playerTwoScore) return calculateScore(playerOneScore) + " All";
         return calculateScore(playerOneScore) + ", " + calculateScore(playerTwoScore);
     }

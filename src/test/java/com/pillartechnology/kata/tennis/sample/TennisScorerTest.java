@@ -44,6 +44,12 @@ public class TennisScorerTest {
         assertEquals("Forty, Love", game.calculateScore());
     }
 
+    @Test
+    public void testPlayersAreDeuce() {
+        setupScore(3, 3);
+        assertEquals("Deuce", game.calculateScore());
+    }
+
     private void setupScore(int playerOneBalls, int playerTwoBalls) {
         for (int i = 0; i < playerOneBalls; i++) {
             game.playerOneScores();
