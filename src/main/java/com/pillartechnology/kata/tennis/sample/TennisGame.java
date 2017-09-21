@@ -22,17 +22,23 @@ public class TennisGame {
     private int playerOneScore;
     private int playerTwoScore;
     private String playerOneName;
+    private String playerTwoName;
 
     public TennisGame(String playerOneName, String playerTwoName) {
         this.playerOneName = playerOneName;
+        this.playerTwoName = playerTwoName;
         playerOneScore = 0;
         playerTwoScore = 0;
     }
 
     public String calculateScore() {
         if (playerOneScore == 4) return playerOneName + " Wins";
+        if (playerTwoScore == 4) return playerTwoName + " Wins";
+
         if (playerOneScore == 3 && playerTwoScore == 3) return "Deuce";
+
         if(playerOneScore == playerTwoScore) return calculateScore(playerOneScore) + " All";
+
         return calculateScore(playerOneScore) + ", " + calculateScore(playerTwoScore);
     }
 
