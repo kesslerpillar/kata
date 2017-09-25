@@ -24,6 +24,7 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processTens(RomanNumberal romanNumberal) {
+        appendTens(romanNumberal, 90, "XC");
         appendTens(romanNumberal, 50, "L");
         appendTens(romanNumberal, 40, "XL");
 

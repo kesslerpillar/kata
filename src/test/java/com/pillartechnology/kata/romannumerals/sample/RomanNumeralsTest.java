@@ -127,4 +127,19 @@ public class RomanNumeralsTest {
     public void testSeventyEightEqualsL() {
         assertEquals("LXXVIII", romanNumerals.convert(78));
     }
+
+    @Test
+    public void testNinetyEqualsL() {
+        assertEquals("XC", romanNumerals.convert(90));
+    }
+
+
+    /*
+         78  : '', 90: 'XC',
+         99  : 'XCIX', 100: 'C',
+         444 : 'CDXLIV', 500: 'D',
+         667 : 'DCLXVII', 900: 'CM',
+         944 : 'CMXLIV', 1000: 'M',
+         1444: 'MCDXLIV', 3999: 'MMMCMXCIX',
+     */
 }
