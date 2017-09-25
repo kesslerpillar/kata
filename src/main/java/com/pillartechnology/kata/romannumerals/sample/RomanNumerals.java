@@ -30,7 +30,7 @@ public class RomanNumerals {
 
 
     private void append(Builder builder, Conversion conversion) {
-        if (builder.count(conversion.range) >= (conversion.number / conversion.range)) {
+        while (builder.count(conversion.range) >= (conversion.number / conversion.range)) {
             builder.append(conversion.romanNumeral);
             builder.subtract(conversion.number);
         }
