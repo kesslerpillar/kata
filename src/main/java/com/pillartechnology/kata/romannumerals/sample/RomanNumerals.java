@@ -18,20 +18,26 @@ public class RomanNumerals {
                 put(4, "IV");
             }
         };
-
+        int before = number;
         for (Map.Entry<Integer, String> translation : translations.entrySet()) {
-            if (translation.getKey() == number) {
+            if (endsWithNumber(number, translation.getKey())) {
                 romanNumeral = translation.getValue() + romanNumeral;
                 number = number - translation.getKey();
             }
         }
-        if (number > 0) {
+
+        if (before == number && number > 0) {
             romanNumeral = "I" + romanNumeral;
             number = number - 1;
         }
+
         if (number == 0) {
             return romanNumeral;
         }
         return traverse(number, romanNumeral);
+    }
+
+    private static boolean endsWithNumber(Integer number, Integer key) {
+        return number.toString().endsWith(key.toString());
     }
 }

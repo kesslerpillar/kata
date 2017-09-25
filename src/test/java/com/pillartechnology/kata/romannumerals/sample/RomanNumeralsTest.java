@@ -55,4 +55,24 @@ public class RomanNumeralsTest {
     public void testTenEqualsX() {
         assertEquals("X", RomanNumerals.convert(10));
     }
+
+    @Test
+    public void testElevenEqualsXi() {
+        assertEquals("XI", RomanNumerals.convert(11));
+    }
+
+    @Test
+    public void testTwelveEqualsXii() {
+        assertEquals("XII", RomanNumerals.convert(12));
+    }
+
+    @Test
+    public void testThirteenEqualsXiii() {
+        assertEquals("XIII", RomanNumerals.convert(13));
+    }
+
+    @Test
+    public void testFourteenEqualsXiv() {
+        assertEquals("XIV", RomanNumerals.convert(14));
+    }
 }
