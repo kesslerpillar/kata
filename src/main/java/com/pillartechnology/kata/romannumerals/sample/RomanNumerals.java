@@ -68,11 +68,6 @@ public class RomanNumerals {
         }
     }
 
-
-    private void append(RomanNumberal romanNumberal, int number, String numeral, int divisor) {
-
-    }
-
     private class RomanNumberal {
         private int number;
         private String romanNumeral;
