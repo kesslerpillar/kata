@@ -1,24 +1,6 @@
 package com.pillartechnology.kata.romannumerals.sample;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 public class RomanNumerals {
-    private static Map<Integer, String> translation;
-
-    static {
-        translation = Collections.unmodifiableMap(new HashMap<Integer, String>() {
-            {
-                put(9, "IX");
-                put(5, "V");
-                put(4, "IV");
-                put(10, "X");
-                put(40, "IL");
-                put(50, "L");
-            }
-        });
-    }
 
     public static String convert(int number) {
         String romanNumeral = "";
