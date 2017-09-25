@@ -12,6 +12,7 @@ public class RomanNumerals {
     private static String traverse(int number, String romanNumeral) {
         Map<Integer, String> translations = new LinkedHashMap<Integer, String>() {
             {
+                put(10, "X");
                 put(9, "IX");
                 put(5, "V");
                 put(4, "IV");

@@ -50,4 +50,9 @@ public class RomanNumeralsTest {
     public void testNineEqualsIx() {
         assertEquals("IX", RomanNumerals.convert(9));
     }
+
+    @Test
+    public void testTenEqualsX() {
+        assertEquals("X", RomanNumerals.convert(10));
+    }
 }
