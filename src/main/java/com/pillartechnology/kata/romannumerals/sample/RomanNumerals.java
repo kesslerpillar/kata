@@ -10,27 +10,22 @@ public class RomanNumerals {
     }
 
     private static String traverse(int number, String romanNumeral) {
-        Map<Integer, String> multiples = new LinkedHashMap<Integer, String>() {
-            {
-                put(10, "X");
-            }
-        };
-
         Map<Integer, String> singles = new LinkedHashMap<Integer, String>() {
             {
+                put(50, "L");
                 put(9, "IX");
                 put(5, "V");
                 put(4, "IV");
             }
         };
 
-        int before = number;
-        for (Map.Entry<Integer, String> multiple : multiples.entrySet()) {
-            while (number > 0 && (endsWithNumber(number, multiple.getKey()) || isEvenlyDivisible(number, multiple.getKey()))) {
-                romanNumeral = multiple.getValue() + romanNumeral;
-                number = number - multiple.getKey();
+        Map<Integer, String> multiples = new LinkedHashMap<Integer, String>() {
+            {
+                put(10, "X");
             }
-        }
+        };
+
+        int before = number;
 
         for (Map.Entry<Integer, String> single : singles.entrySet()) {
             if (endsWithNumber(number, single.getKey())) {
@@ -38,6 +33,14 @@ public class RomanNumerals {
                 number = number - single.getKey();
             }
         }
+
+        for (Map.Entry<Integer, String> multiple : multiples.entrySet()) {
+            while (number > 0 && (endsWithNumber(number, multiple.getKey()) || isEvenlyDivisible(number, multiple.getKey()))) {
+                romanNumeral = multiple.getValue() + romanNumeral;
+                number = number - multiple.getKey();
+            }
+        }
+
 
         if (before == number && number > 0) {
             romanNumeral = "I" + romanNumeral;
