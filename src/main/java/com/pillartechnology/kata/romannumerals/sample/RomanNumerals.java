@@ -1,63 +1,74 @@
 package com.pillartechnology.kata.romannumerals.sample;
 
-import java.util.LinkedHashMap;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public class RomanNumerals {
+    private static Map<Integer, String> translation;
 
-    public static String convert(int number) {
-        return traverse(number, "");
-    }
-
-    private static String traverse(int number, String romanNumeral) {
-        Map<Integer, String> singles = new LinkedHashMap<Integer, String>() {
+    static {
+        translation = Collections.unmodifiableMap(new HashMap<Integer, String>() {
             {
                 put(9, "IX");
                 put(5, "V");
                 put(4, "IV");
-            }
-        };
-
-        Map<Integer, String> multiples = new LinkedHashMap<Integer, String>() {
-            {
-                put(50, "L");
                 put(10, "X");
+                put(40, "IL");
+                put(50, "L");
             }
-        };
-
-        int before = number;
-
-        for (Map.Entry<Integer, String> single : singles.entrySet()) {
-            if (endsWithNumber(number, single.getKey())) {
-                romanNumeral = single.getValue() + romanNumeral;
-                number = number - single.getKey();
-            }
-        }
-
-        for (Map.Entry<Integer, String> multiple : multiples.entrySet()) {
-            while (number > 0 && (endsWithNumber(number, multiple.getKey()) || isEvenlyDivisible(number, multiple.getKey()))) {
-                romanNumeral = multiple.getValue() + romanNumeral;
-                number = number - multiple.getKey();
-            }
-        }
-
-
-        if (before == number && number > 0) {
-            romanNumeral = "I" + romanNumeral;
-            number = number - 1;
-        }
-
-        if (number == 0) {
-            return romanNumeral;
-        }
-        return traverse(number, romanNumeral);
+        });
     }
 
-    private static boolean isEvenlyDivisible(int number, int key) {
-        return number % key == 0;
+    public static String convert(int number) {
+        String romanNumeral = "";
+
+        romanNumeral = processTens(number, romanNumeral);
+        romanNumeral = processOnes(number, romanNumeral);
+
+        return romanNumeral;
     }
 
-    private static boolean endsWithNumber(Integer number, Integer key) {
-        return number.toString().endsWith(key.toString());
+    private static String processOnes(int number, String romanNumeral) {
+        int ones = number % 10;
+
+        if (ones >= 9) {
+            romanNumeral += "IX";
+            ones = ones - 9;
+        }
+
+        if (ones >= 5) {
+            romanNumeral += "V";
+            ones = ones - 5;
+        }
+
+        if (ones >= 4) {
+            romanNumeral += "IV";
+            ones = ones - 4;
+        }
+
+        for (int i = 0; i < ones; i++) {
+            romanNumeral += "I";
+        }
+        return romanNumeral;
+    }
+
+    private static String processTens(int number, String romanNumeral) {
+        int tens = number / 10 % 10;
+
+        if (tens == 5) {
+            romanNumeral += "L";
+            tens = tens - 5;
+        }
+
+        if (tens == 4) {
+            romanNumeral += "XL";
+            tens = tens - 4;
+        }
+
+        for (int i = 0; i < tens; i++) {
+            romanNumeral += "X";
+        }
+        return romanNumeral;
     }
 }
