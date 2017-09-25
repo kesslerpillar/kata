@@ -1,36 +1,37 @@
 package com.pillartechnology.kata.romannumerals.sample;
 
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RomanNumerals {
 
 
-    private static Map<Integer, String> translation;
+    private static Map<Integer, String> translations;
 
     static {
-        translation = Collections.unmodifiableMap(new HashMap<Integer, String>() {
+        translations = Collections.unmodifiableMap(new LinkedHashMap<Integer, String>() {
             {
-                put(1, "I");
-                put(2, "II");
-                put(3, "III");
-                put(4, "IV");
                 put(5, "V");
+                put(4, "IV");
             }
         });
     }
 
     public static String convert(int number) {
-        String base = "";
-        String percision = "";
+        String romanNumeral = "";
+        int remainder = number;
 
-        if (number > 5) {
-            base = translation.get(5);
-            percision = translation.get(number - 5);
-        } else {
-            base = translation.get(number);
+        for (Map.Entry<Integer, String> translation : translations.entrySet()) {
+            if (translation.getKey() == remainder) {
+                romanNumeral = translation.getValue() + romanNumeral;
+                remainder = remainder - translation.getKey();
+            } else if (remainder > 0) {
+                romanNumeral = "I" + romanNumeral;
+                remainder = remainder - 1;
+            }
         }
-        return base + percision;
+
+        return romanNumeral;
     }
 }
