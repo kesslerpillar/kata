@@ -12,7 +12,6 @@ public class RomanNumerals {
     private static String traverse(int number, String romanNumeral) {
         Map<Integer, String> singles = new LinkedHashMap<Integer, String>() {
             {
-                put(50, "L");
                 put(9, "IX");
                 put(5, "V");
                 put(4, "IV");
@@ -21,6 +20,7 @@ public class RomanNumerals {
 
         Map<Integer, String> multiples = new LinkedHashMap<Integer, String>() {
             {
+                put(50, "L");
                 put(10, "X");
             }
         };
@@ -35,8 +35,7 @@ public class RomanNumerals {
         }
 
         for (Map.Entry<Integer, String> multiple : multiples.entrySet()) {
-            while (number > 0 && (endsWithNumber(number, multiple.getKey()) ||
-                    (isEvenlyDivisibleByTen(number) && number < 50))) {
+            while (number > 0 && (endsWithNumber(number, multiple.getKey()) || isEvenlyDivisible(number, multiple.getKey()))) {
                 romanNumeral = multiple.getValue() + romanNumeral;
                 number = number - multiple.getKey();
             }
@@ -54,8 +53,8 @@ public class RomanNumerals {
         return traverse(number, romanNumeral);
     }
 
-    private static boolean isEvenlyDivisibleByTen(int number) {
-        return number % 10 == 0;
+    private static boolean isEvenlyDivisible(int number, int key) {
+        return number % key == 0;
     }
 
     private static boolean endsWithNumber(Integer number, Integer key) {

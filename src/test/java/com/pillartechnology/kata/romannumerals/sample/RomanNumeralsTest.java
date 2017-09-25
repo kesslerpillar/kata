@@ -82,12 +82,17 @@ public class RomanNumeralsTest {
     }
 
     @Test
-    public void testNineteenEqualsXIX() {
+    public void testNineteenEqualsXix() {
         assertEquals("XIX", RomanNumerals.convert(19));
     }
 
     @Test
-    public void testThrityNineEqualsXXXIX() {
+    public void testThrityEightEqualsXxxvii() {
+        assertEquals("XXXVIII", RomanNumerals.convert(38));
+    }
+
+    @Test
+    public void testThrityNineEqualsXxxix() {
         assertEquals("XXXIX", RomanNumerals.convert(39));
     }
 
