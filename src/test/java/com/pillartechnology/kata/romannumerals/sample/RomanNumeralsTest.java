@@ -152,4 +152,9 @@ public class RomanNumeralsTest {
     public void testFiveHundredEqualsCdxliv() {
         assertEquals("D", romanNumerals.convert(500));
     }
+
+    @Test
+    public void testSixHundredSixtySevenEqualsDclixvii() {
+        assertEquals("DCLXVII", romanNumerals.convert(667));
+    }
 }
