@@ -3,7 +3,7 @@ package com.pillartechnology.kata.romannumerals.sample;
 public class RomanNumerals {
 
     public String convert(int number) {
-        RomanNumberal romanNumeral = new RomanNumberal(number, "");
+        Builder romanNumeral = new Builder(number, "");
 
         romanNumeral = processThousands(romanNumeral);
         romanNumeral = processHundreds(romanNumeral);
@@ -13,63 +13,63 @@ public class RomanNumerals {
         return romanNumeral.toString();
     }
 
-    private RomanNumberal processOnes(RomanNumberal romanNumberal) {
-        append(romanNumberal, 9, "IX", 1);
-        append(romanNumberal, 5, "V", 1);
-        append(romanNumberal, 4, "IV", 1);
+    private Builder processOnes(Builder builder) {
+        append(builder, new Conversion(9, "IX", 1));
+        append(builder, new Conversion(5, "V", 1));
+        append(builder, new Conversion(4, "IV", 1));
 
-        while (romanNumberal.count(1) > 0) {
-            romanNumberal.append("I");
-            romanNumberal.subtract(1);
+        while (builder.count(1) > 0) {
+            builder.append("I");
+            builder.subtract(1);
         }
-        return romanNumberal;
+        return builder;
     }
 
-    private RomanNumberal processTens(RomanNumberal romanNumberal) {
-        append(romanNumberal, 90, "XC", 10);
-        append(romanNumberal, 50, "L", 10);
-        append(romanNumberal, 40, "XL", 10);
+    private Builder processTens(Builder builder) {
+        append(builder, new Conversion(90, "XC", 10));
+        append(builder, new Conversion(50, "L", 10));
+        append(builder, new Conversion(40, "XL", 10));
 
-        while (romanNumberal.count(10) > 0) {
-            romanNumberal.append("X");
-            romanNumberal.subtract(10);
+        while (builder.count(10) > 0) {
+            builder.append("X");
+            builder.subtract(10);
         }
-        return romanNumberal;
+        return builder;
     }
 
-    private RomanNumberal processHundreds(RomanNumberal romanNumberal) {
-        append(romanNumberal, 900, "CM", 100);
-        append(romanNumberal, 500, "D", 100);
-        append(romanNumberal, 400, "CD", 100);
+    private Builder processHundreds(Builder builder) {
+        append(builder, new Conversion(900, "CM", 100));
+        append(builder, new Conversion(500, "D", 100));
+        append(builder, new Conversion(400, "CD", 100));
 
-        while (romanNumberal.count(100) > 0) {
-            romanNumberal.append("C");
-            romanNumberal.subtract(100);
+        while (builder.count(100) > 0) {
+            builder.append("C");
+            builder.subtract(100);
         }
-        return romanNumberal;
+        return builder;
     }
 
-    private RomanNumberal processThousands(RomanNumberal romanNumberal) {
-        while (romanNumberal.count(1000) > 0) {
-            romanNumberal.append("M");
-            romanNumberal.subtract(1000);
+    private Builder processThousands(Builder builder) {
+        while (builder.count(1000) > 0) {
+            builder.append("M");
+            builder.subtract(1000);
         }
-        return romanNumberal;
+        return builder;
     }
 
 
-    private void append(RomanNumberal romanNumberal, int number, String numeral, int amountToCount) {
-        if (romanNumberal.count(amountToCount) >= (number / amountToCount)) {
-            romanNumberal.append(numeral);
-            romanNumberal.subtract(number);
+    private void append(Builder builder, Conversion conversion) {
+        if (builder.count(conversion.range) >= (conversion.number / conversion.range)) {
+            builder.append(conversion.romanNumeral);
+            builder.subtract(conversion.number);
         }
     }
 
-    private class RomanNumberal {
+    private class Builder {
         private int number;
         private String romanNumeral;
 
-        private RomanNumberal(int number, String romanNumeral) {
+        private Builder(int number, String romanNumeral) {
             this.number = number;
             this.romanNumeral = romanNumeral;
         }
@@ -89,6 +89,31 @@ public class RomanNumerals {
         @Override
         public String toString() {
             return romanNumeral;
+        }
+    }
+
+    private class Conversion {
+
+        private int number;
+        private String romanNumeral;
+        private int range;
+
+        private Conversion(int number, String romanNumeral, int range) {
+            this.number = number;
+            this.romanNumeral = romanNumeral;
+            this.range = range;
+        }
+
+        public int getNumber() {
+            return number;
+        }
+
+        public String getRomanNumeral() {
+            return romanNumeral;
+        }
+
+        public int getRange() {
+            return range;
         }
     }
 }
