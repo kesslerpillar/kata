@@ -157,4 +157,9 @@ public class RomanNumeralsTest {
     public void testSixHundredSixtySevenEqualsDclixvii() {
         assertEquals("DCLXVII", romanNumerals.convert(667));
     }
+
+    @Test
+    public void testNineHundredEqualsCm() {
+        assertEquals("CM", romanNumerals.convert(900));
+    }
 }

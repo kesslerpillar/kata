@@ -37,6 +37,7 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processHundreds(RomanNumberal romanNumberal) {
+        appendHundreds(romanNumberal, 900, "CM");
         appendHundreds(romanNumberal, 500, "D");
         appendHundreds(romanNumberal, 400, "CD");
 
