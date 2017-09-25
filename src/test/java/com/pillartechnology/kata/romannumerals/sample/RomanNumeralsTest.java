@@ -137,4 +137,17 @@ public class RomanNumeralsTest {
     public void testNinetyNineEqualsL() {
         assertEquals("XCIX", romanNumerals.convert(99));
     }
+
+    @Test
+    public void testOneHundredEqualsL() {
+        assertEquals("C", romanNumerals.convert(100));
+    }
+
+
+    /*
+         444 : 'CDXLIV', 500: 'D',
+         667 : 'DCLXVII', 900: 'CM',
+         944 : 'CMXLIV', 1000: 'M',
+         1444: 'MCDXLIV', 3999: 'MMMCMXCIX',
+     */
 }

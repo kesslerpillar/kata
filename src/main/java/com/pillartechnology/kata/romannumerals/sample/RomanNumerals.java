@@ -5,6 +5,7 @@ public class RomanNumerals {
     public String convert(int number) {
         RomanNumberal romanNumeral = new RomanNumberal(number, "");
 
+        romanNumeral = processHundreds(romanNumeral);
         romanNumeral = processTens(romanNumeral);
         romanNumeral = processOnes(romanNumeral);
 
@@ -31,6 +32,14 @@ public class RomanNumerals {
         while (romanNumberal.tens() > 0) {
             romanNumberal.append("X");
             romanNumberal.subtract(10);
+        }
+        return romanNumberal;
+    }
+
+    private RomanNumberal processHundreds(RomanNumberal romanNumberal) {
+        while (romanNumberal.hundreds() > 0) {
+            romanNumberal.append("C");
+            romanNumberal.subtract(100);
         }
         return romanNumberal;
     }
@@ -70,6 +79,10 @@ public class RomanNumerals {
 
         private void append(String part) {
             romanNumeral += part;
+        }
+
+        private int hundreds() {
+            return number / 100 % 10;
         }
 
         private int tens() {
