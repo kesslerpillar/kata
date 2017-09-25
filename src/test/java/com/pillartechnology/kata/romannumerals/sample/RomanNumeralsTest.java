@@ -147,4 +147,9 @@ public class RomanNumeralsTest {
     public void testFourHundredFourtyFourEqualsCdxliv() {
         assertEquals("CDXLIV", romanNumerals.convert(444));
     }
+
+    @Test
+    public void testFiveHundredEqualsCdxliv() {
+        assertEquals("D", romanNumerals.convert(500));
+    }
 }
