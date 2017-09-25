@@ -37,6 +37,8 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processHundreds(RomanNumberal romanNumberal) {
+        appendHundreds(romanNumberal, 400, "CD");
+
         while (romanNumberal.hundreds() > 0) {
             romanNumberal.append("C");
             romanNumberal.subtract(100);
@@ -54,6 +56,13 @@ public class RomanNumerals {
 
     private void appendTens(RomanNumberal romanNumberal, int number, String numeral) {
         if (romanNumberal.tens() >= (number / 10)) {
+            romanNumberal.append(numeral);
+            romanNumberal.subtract(number);
+        }
+    }
+
+    private void appendHundreds(RomanNumberal romanNumberal, int number, String numeral) {
+        if (romanNumberal.hundreds() >= (number / 100)) {
             romanNumberal.append(numeral);
             romanNumberal.subtract(number);
         }

@@ -143,11 +143,8 @@ public class RomanNumeralsTest {
         assertEquals("C", romanNumerals.convert(100));
     }
 
-
-    /*
-         444 : 'CDXLIV', 500: 'D',
-         667 : 'DCLXVII', 900: 'CM',
-         944 : 'CMXLIV', 1000: 'M',
-         1444: 'MCDXLIV', 3999: 'MMMCMXCIX',
-     */
+    @Test
+    public void testFourHundredFourtyFourEqualsL() {
+        assertEquals("CDXLIV", romanNumerals.convert(444));
+    }
 }
