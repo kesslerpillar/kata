@@ -26,6 +26,11 @@ public class RomanNumerals {
             }
         }
 
+        if (number > 10 && isEvenlyDivisibleByTen(number)) {
+            romanNumeral = "X" + romanNumeral;
+            number = number - 10;
+        }
+
         if (before == number && number > 0) {
             romanNumeral = "I" + romanNumeral;
             number = number - 1;
@@ -35,6 +40,10 @@ public class RomanNumerals {
             return romanNumeral;
         }
         return traverse(number, romanNumeral);
+    }
+
+    private static boolean isEvenlyDivisibleByTen(int number) {
+        return number % 10 == 0;
     }
 
     private static boolean endsWithNumber(Integer number, Integer key) {
