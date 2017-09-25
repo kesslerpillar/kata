@@ -30,9 +30,4 @@ public class RomanNumeralsTest {
     public void testFiveEqualsV() {
         assertEquals("V", RomanNumerals.convert(5));
     }
-
-    @Test
-    public void testSixEqualsVI() {
-        assertEquals("VI", RomanNumerals.convert(6));
-    }
 }
