@@ -2,55 +2,85 @@ package com.pillartechnology.kata.romannumerals.sample;
 
 public class RomanNumerals {
 
-    public static String convert(int number) {
-        String romanNumeral = "";
+    public String convert(int number) {
+        RomanNumberal romanNumeral = new RomanNumberal(number, "");
 
-        romanNumeral = processTens(number, romanNumeral);
-        romanNumeral = processOnes(number, romanNumeral);
+        romanNumeral = processTens(romanNumeral);
+        romanNumeral = processOnes(romanNumeral);
 
-        return romanNumeral;
+        return romanNumeral.toString();
     }
 
-    private static String processOnes(int number, String romanNumeral) {
-        int ones = number % 10;
+    private RomanNumberal processOnes(RomanNumberal romanNumberal) {
 
-        if (ones >= 9) {
-            romanNumeral += "IX";
-            ones = ones - 9;
+        if (romanNumberal.ones() >= 9) {
+            romanNumberal.append("IX");
+            romanNumberal.subtract(9);
         }
 
-        if (ones >= 5) {
-            romanNumeral += "V";
-            ones = ones - 5;
+        if (romanNumberal.ones() >= 5) {
+            romanNumberal.append("V");
+            romanNumberal.subtract(5);
         }
 
-        if (ones >= 4) {
-            romanNumeral += "IV";
-            ones = ones - 4;
+        if (romanNumberal.ones() >= 4) {
+            romanNumberal.append("IV");
+            romanNumberal.subtract(4);
         }
 
-        for (int i = 0; i < ones; i++) {
-            romanNumeral += "I";
+        while (romanNumberal.ones() > 0) {
+            romanNumberal.append("I");
+            romanNumberal.subtract(1);
         }
-        return romanNumeral;
+        return romanNumberal;
     }
 
-    private static String processTens(int number, String romanNumeral) {
-        int tens = number / 10 % 10;
-
-        if (tens == 5) {
-            romanNumeral += "L";
-            tens = tens - 5;
+    private RomanNumberal processTens(RomanNumberal romanNumberal) {
+        if (romanNumberal.tens() >= 5) {
+            romanNumberal.append("L");
+            romanNumberal.subtract(50);
         }
 
-        if (tens == 4) {
-            romanNumeral += "XL";
-            tens = tens - 4;
+        if (romanNumberal.tens() >= 4) {
+            romanNumberal.append("XL");
+            romanNumberal.subtract(40);
         }
 
-        for (int i = 0; i < tens; i++) {
-            romanNumeral += "X";
+        while (romanNumberal.tens() > 0) {
+            romanNumberal.append("X");
+            romanNumberal.subtract(10);
         }
-        return romanNumeral;
+        return romanNumberal;
+    }
+
+    private class RomanNumberal {
+        private int number;
+        private String romanNumeral;
+
+        private RomanNumberal(int number, String romanNumeral) {
+            this.number = number;
+            this.romanNumeral = romanNumeral;
+        }
+
+        private void subtract(int value) {
+            number = number - value;
+        }
+
+        private void append(String part) {
+            romanNumeral += part;
+        }
+
+        private int tens() {
+            return number / 10 % 10;
+        }
+
+        private int ones() {
+            return number % 10;
+        }
+
+        @Override
+        public String toString() {
+            return romanNumeral;
+        }
     }
 }

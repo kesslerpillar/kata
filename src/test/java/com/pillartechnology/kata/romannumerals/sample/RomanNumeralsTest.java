@@ -1,108 +1,120 @@
 package com.pillartechnology.kata.romannumerals.sample;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class RomanNumeralsTest {
+    private RomanNumerals romanNumerals;
+
+    @Before
+    public void setUp() {
+        romanNumerals = new RomanNumerals();
+    }
 
     @Test
     public void testOneEqualsI() {
-        assertEquals("I", RomanNumerals.convert(1));
+        assertEquals("I", romanNumerals.convert(1));
     }
 
     @Test
     public void testTwoEqualsIi() {
-        assertEquals("II", RomanNumerals.convert(2));
+        assertEquals("II", romanNumerals.convert(2));
     }
 
     @Test
     public void testThreeEqualsIii() {
-        assertEquals("III", RomanNumerals.convert(3));
+        assertEquals("III", romanNumerals.convert(3));
     }
 
     @Test
     public void testFourEqualsIv() {
-        assertEquals("IV", RomanNumerals.convert(4));
+        assertEquals("IV", romanNumerals.convert(4));
     }
 
     @Test
     public void testFiveEqualsV() {
-        assertEquals("V", RomanNumerals.convert(5));
+        assertEquals("V", romanNumerals.convert(5));
     }
 
     @Test
     public void testSixEqualsVi() {
-        assertEquals("VI", RomanNumerals.convert(6));
+        assertEquals("VI", romanNumerals.convert(6));
     }
 
     @Test
     public void testSevenEqualsVii() {
-        assertEquals("VII", RomanNumerals.convert(7));
+        assertEquals("VII", romanNumerals.convert(7));
     }
 
     @Test
     public void testEightEqualsViii() {
-        assertEquals("VIII", RomanNumerals.convert(8));
+        assertEquals("VIII", romanNumerals.convert(8));
     }
 
     @Test
     public void testNineEqualsIx() {
-        assertEquals("IX", RomanNumerals.convert(9));
+        assertEquals("IX", romanNumerals.convert(9));
     }
 
     @Test
     public void testTenEqualsX() {
-        assertEquals("X", RomanNumerals.convert(10));
+        assertEquals("X", romanNumerals.convert(10));
     }
 
     @Test
     public void testElevenEqualsXi() {
-        assertEquals("XI", RomanNumerals.convert(11));
+        assertEquals("XI", romanNumerals.convert(11));
     }
 
     @Test
     public void testTwelveEqualsXii() {
-        assertEquals("XII", RomanNumerals.convert(12));
+        assertEquals("XII", romanNumerals.convert(12));
     }
 
     @Test
     public void testThirteenEqualsXiii() {
-        assertEquals("XIII", RomanNumerals.convert(13));
+        assertEquals("XIII", romanNumerals.convert(13));
     }
 
     @Test
     public void testFourteenEqualsXiv() {
-        assertEquals("XIV", RomanNumerals.convert(14));
+        assertEquals("XIV", romanNumerals.convert(14));
     }
 
     @Test
     public void testFifteenEqualsXv() {
-        assertEquals("XV", RomanNumerals.convert(15));
+        assertEquals("XV", romanNumerals.convert(15));
     }
 
     @Test
     public void testNineteenEqualsXix() {
-        assertEquals("XIX", RomanNumerals.convert(19));
+        assertEquals("XIX", romanNumerals.convert(19));
     }
 
     @Test
     public void testThrityEightEqualsXxxvii() {
-        assertEquals("XXXVIII", RomanNumerals.convert(38));
+        assertEquals("XXXVIII", romanNumerals.convert(38));
     }
 
     @Test
     public void testThrityNineEqualsXxxix() {
-        assertEquals("XXXIX", RomanNumerals.convert(39));
+        assertEquals("XXXIX", romanNumerals.convert(39));
     }
 
     @Test
     public void testFiftyEqualsL() {
-        assertEquals("L", RomanNumerals.convert(50));
+        assertEquals("L", romanNumerals.convert(50));
     }
 
     @Test
     public void testFiftyFourEqualsL() {
-        assertEquals("LIV", RomanNumerals.convert(54));
+        assertEquals("LIV", romanNumerals.convert(54));
+    }
+
+    @Test
+    public void testSixtyNineEqualsL() {
+        assertEquals("LXIX", romanNumerals.convert(69));
     }
 }
