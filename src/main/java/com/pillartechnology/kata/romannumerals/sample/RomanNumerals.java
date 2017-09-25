@@ -37,7 +37,7 @@ public class RomanNumerals {
     }
 
     private void processBase(Builder builder, Conversion conversion) {
-        while (builder.count(conversion.number) >= (conversion.number / conversion.range)) {
+        while (builder.count(conversion.range) >= (conversion.number / conversion.range)) {
             builder.append(conversion.romanNumeral);
             builder.subtract(conversion.number);
         }
