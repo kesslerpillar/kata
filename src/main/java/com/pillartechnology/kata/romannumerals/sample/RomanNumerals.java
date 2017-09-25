@@ -18,22 +18,22 @@ public class RomanNumerals {
         append(builder, new Conversion(5, "V", 1));
         append(builder, new Conversion(4, "IV", 1));
 
-        while (builder.count(1) > 0) {
-            builder.append("I");
-            builder.subtract(1);
-        }
+        processBase(builder, new Conversion(1, "I", 1));
         return builder;
+    }
+
+    private void processBase(Builder builder, Conversion conversion) {
+        while (builder.count(conversion.number) > 0) {
+            builder.append(conversion.romanNumeral);
+            builder.subtract(conversion.number);
+        }
     }
 
     private Builder processTens(Builder builder) {
         append(builder, new Conversion(90, "XC", 10));
         append(builder, new Conversion(50, "L", 10));
         append(builder, new Conversion(40, "XL", 10));
-
-        while (builder.count(10) > 0) {
-            builder.append("X");
-            builder.subtract(10);
-        }
+        processBase(builder, new Conversion(10, "X", 10));
         return builder;
     }
 
@@ -41,19 +41,12 @@ public class RomanNumerals {
         append(builder, new Conversion(900, "CM", 100));
         append(builder, new Conversion(500, "D", 100));
         append(builder, new Conversion(400, "CD", 100));
-
-        while (builder.count(100) > 0) {
-            builder.append("C");
-            builder.subtract(100);
-        }
+        processBase(builder, new Conversion(100, "C", 100));
         return builder;
     }
 
     private Builder processThousands(Builder builder) {
-        while (builder.count(1000) > 0) {
-            builder.append("M");
-            builder.subtract(1000);
-        }
+        processBase(builder, new Conversion(1000, "M", 1000));
         return builder;
     }
 
