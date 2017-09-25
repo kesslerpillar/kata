@@ -109,42 +109,42 @@ public class RomanNumeralsTest {
     }
 
     @Test
-    public void testFiftyFourEqualsL() {
+    public void testFiftyFourEqualsLiv() {
         assertEquals("LIV", romanNumerals.convert(54));
     }
 
     @Test
-    public void testSixtyNineEqualsL() {
+    public void testSixtyNineEqualsLxix() {
         assertEquals("LXIX", romanNumerals.convert(69));
     }
 
     @Test
-    public void testSeventyFourEqualsL() {
+    public void testSeventyFourEqualsLxxiv() {
         assertEquals("LXXIV", romanNumerals.convert(74));
     }
 
     @Test
-    public void testSeventyEightEqualsL() {
+    public void testSeventyEightEqualsLxxviii() {
         assertEquals("LXXVIII", romanNumerals.convert(78));
     }
 
     @Test
-    public void testNinetyEqualsL() {
+    public void testNinetyEqualsXc() {
         assertEquals("XC", romanNumerals.convert(90));
     }
 
     @Test
-    public void testNinetyNineEqualsL() {
+    public void testNinetyNineEqualsXcix() {
         assertEquals("XCIX", romanNumerals.convert(99));
     }
 
     @Test
-    public void testOneHundredEqualsL() {
+    public void testOneHundredEqualsC() {
         assertEquals("C", romanNumerals.convert(100));
     }
 
     @Test
-    public void testFourHundredFourtyFourEqualsL() {
+    public void testFourHundredFourtyFourEqualsCdxliv() {
         assertEquals("CDXLIV", romanNumerals.convert(444));
     }
 }
