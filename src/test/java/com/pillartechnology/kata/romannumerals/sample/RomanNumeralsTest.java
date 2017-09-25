@@ -117,4 +117,14 @@ public class RomanNumeralsTest {
     public void testSixtyNineEqualsL() {
         assertEquals("LXIX", romanNumerals.convert(69));
     }
+
+    @Test
+    public void testSeventyFourEqualsL() {
+        assertEquals("LXXIV", romanNumerals.convert(74));
+    }
+
+    @Test
+    public void testSeventyEightEqualsL() {
+        assertEquals("LXXVIII", romanNumerals.convert(78));
+    }
 }
