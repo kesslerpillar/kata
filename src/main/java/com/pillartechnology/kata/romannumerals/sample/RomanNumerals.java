@@ -12,21 +12,9 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processOnes(RomanNumberal romanNumberal) {
-
-        if (romanNumberal.ones() >= 9) {
-            romanNumberal.append("IX");
-            romanNumberal.subtract(9);
-        }
-
-        if (romanNumberal.ones() >= 5) {
-            romanNumberal.append("V");
-            romanNumberal.subtract(5);
-        }
-
-        if (romanNumberal.ones() >= 4) {
-            romanNumberal.append("IV");
-            romanNumberal.subtract(4);
-        }
+        appendOnes(romanNumberal, 9, "IX");
+        appendOnes(romanNumberal, 5, "V");
+        appendOnes(romanNumberal, 4, "IV");
 
         while (romanNumberal.ones() > 0) {
             romanNumberal.append("I");
@@ -36,21 +24,34 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processTens(RomanNumberal romanNumberal) {
-        if (romanNumberal.tens() >= 5) {
-            romanNumberal.append("L");
-            romanNumberal.subtract(50);
-        }
-
-        if (romanNumberal.tens() >= 4) {
-            romanNumberal.append("XL");
-            romanNumberal.subtract(40);
-        }
+        appendTens(romanNumberal, 50, "L");
+        appendTens(romanNumberal, 40, "XL");
 
         while (romanNumberal.tens() > 0) {
             romanNumberal.append("X");
             romanNumberal.subtract(10);
         }
         return romanNumberal;
+    }
+
+
+    private void appendOnes(RomanNumberal romanNumberal, int number, String numeral) {
+        if (romanNumberal.ones() >= (number)) {
+            romanNumberal.append(numeral);
+            romanNumberal.subtract(number);
+        }
+    }
+
+    private void appendTens(RomanNumberal romanNumberal, int number, String numeral) {
+        if (romanNumberal.tens() >= (number / 10)) {
+            romanNumberal.append(numeral);
+            romanNumberal.subtract(number);
+        }
+    }
+
+
+    private void append(RomanNumberal romanNumberal, int number, String numeral, int divisor) {
+
     }
 
     private class RomanNumberal {
