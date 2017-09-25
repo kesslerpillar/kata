@@ -14,11 +14,11 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processOnes(RomanNumberal romanNumberal) {
-        appendOnes(romanNumberal, 9, "IX");
-        appendOnes(romanNumberal, 5, "V");
-        appendOnes(romanNumberal, 4, "IV");
+        append(romanNumberal, 9, "IX", 1);
+        append(romanNumberal, 5, "V", 1);
+        append(romanNumberal, 4, "IV", 1);
 
-        while (romanNumberal.ones() > 0) {
+        while (romanNumberal.count(1) > 0) {
             romanNumberal.append("I");
             romanNumberal.subtract(1);
         }
@@ -26,11 +26,11 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processTens(RomanNumberal romanNumberal) {
-        appendTens(romanNumberal, 90, "XC");
-        appendTens(romanNumberal, 50, "L");
-        appendTens(romanNumberal, 40, "XL");
+        append(romanNumberal, 90, "XC", 10);
+        append(romanNumberal, 50, "L", 10);
+        append(romanNumberal, 40, "XL", 10);
 
-        while (romanNumberal.tens() > 0) {
+        while (romanNumberal.count(10) > 0) {
             romanNumberal.append("X");
             romanNumberal.subtract(10);
         }
@@ -38,12 +38,11 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processHundreds(RomanNumberal romanNumberal) {
-        appendHundreds(romanNumberal, 1000, "M");
-        appendHundreds(romanNumberal, 900, "CM");
-        appendHundreds(romanNumberal, 500, "D");
-        appendHundreds(romanNumberal, 400, "CD");
+        append(romanNumberal, 900, "CM", 100);
+        append(romanNumberal, 500, "D", 100);
+        append(romanNumberal, 400, "CD", 100);
 
-        while (romanNumberal.hundreds() > 0) {
+        while (romanNumberal.count(100) > 0) {
             romanNumberal.append("C");
             romanNumberal.subtract(100);
         }
@@ -51,7 +50,7 @@ public class RomanNumerals {
     }
 
     private RomanNumberal processThousands(RomanNumberal romanNumberal) {
-        while (romanNumberal.thousands() > 0) {
+        while (romanNumberal.count(1000) > 0) {
             romanNumberal.append("M");
             romanNumberal.subtract(1000);
         }
@@ -59,22 +58,8 @@ public class RomanNumerals {
     }
 
 
-    private void appendOnes(RomanNumberal romanNumberal, int number, String numeral) {
-        if (romanNumberal.ones() >= (number)) {
-            romanNumberal.append(numeral);
-            romanNumberal.subtract(number);
-        }
-    }
-
-    private void appendTens(RomanNumberal romanNumberal, int number, String numeral) {
-        if (romanNumberal.tens() >= (number / 10)) {
-            romanNumberal.append(numeral);
-            romanNumberal.subtract(number);
-        }
-    }
-
-    private void appendHundreds(RomanNumberal romanNumberal, int number, String numeral) {
-        if (romanNumberal.hundreds() >= (number / 100)) {
+    private void append(RomanNumberal romanNumberal, int number, String numeral, int amountToCount) {
+        if (romanNumberal.count(amountToCount) >= (number / amountToCount)) {
             romanNumberal.append(numeral);
             romanNumberal.subtract(number);
         }
@@ -97,20 +82,8 @@ public class RomanNumerals {
             romanNumeral += part;
         }
 
-        private int thousands() {
-            return number / 1000 % 10;
-        }
-
-        private int hundreds() {
-            return number / 100 % 10;
-        }
-
-        private int tens() {
-            return number / 10 % 10;
-        }
-
-        private int ones() {
-            return number % 10;
+        private int count(int amount) {
+            return number / amount % 10;
         }
 
         @Override
