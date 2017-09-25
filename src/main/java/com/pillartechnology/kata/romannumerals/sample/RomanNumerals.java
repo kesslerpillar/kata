@@ -10,25 +10,33 @@ public class RomanNumerals {
     }
 
     private static String traverse(int number, String romanNumeral) {
-        Map<Integer, String> translations = new LinkedHashMap<Integer, String>() {
+        Map<Integer, String> multiples = new LinkedHashMap<Integer, String>() {
             {
                 put(10, "X");
+            }
+        };
+
+        Map<Integer, String> singles = new LinkedHashMap<Integer, String>() {
+            {
                 put(9, "IX");
                 put(5, "V");
                 put(4, "IV");
             }
         };
+
         int before = number;
-        for (Map.Entry<Integer, String> translation : translations.entrySet()) {
-            if (endsWithNumber(number, translation.getKey())) {
-                romanNumeral = translation.getValue() + romanNumeral;
-                number = number - translation.getKey();
+        for (Map.Entry<Integer, String> multiple : multiples.entrySet()) {
+            while (number > 0 && (endsWithNumber(number, multiple.getKey()) || isEvenlyDivisible(number, multiple.getKey()))) {
+                romanNumeral = multiple.getValue() + romanNumeral;
+                number = number - multiple.getKey();
             }
         }
 
-        if (number > 10 && isEvenlyDivisibleByTen(number)) {
-            romanNumeral = "X" + romanNumeral;
-            number = number - 10;
+        for (Map.Entry<Integer, String> single : singles.entrySet()) {
+            if (endsWithNumber(number, single.getKey())) {
+                romanNumeral = single.getValue() + romanNumeral;
+                number = number - single.getKey();
+            }
         }
 
         if (before == number && number > 0) {
@@ -42,8 +50,8 @@ public class RomanNumerals {
         return traverse(number, romanNumeral);
     }
 
-    private static boolean isEvenlyDivisibleByTen(int number) {
-        return number % 10 == 0;
+    private static boolean isEvenlyDivisible(int number, int key) {
+        return number % key == 0;
     }
 
     private static boolean endsWithNumber(Integer number, Integer key) {
