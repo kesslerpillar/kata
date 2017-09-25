@@ -164,7 +164,12 @@ public class RomanNumeralsTest {
     }
 
     @Test
-    public void testNineHundredFourtyFourEqualsCm() {
+    public void testNineHundredFourtyFourEqualsCmxliv() {
         assertEquals("CMXLIV", romanNumerals.convert(944));
+    }
+
+    @Test
+    public void testOneThousandEqualsM() {
+        assertEquals("M", romanNumerals.convert(1000));
     }
 }
