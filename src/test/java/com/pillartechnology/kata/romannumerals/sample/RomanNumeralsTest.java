@@ -45,4 +45,9 @@ public class RomanNumeralsTest {
     public void testEightEqualsViii() {
         assertEquals("VIII", RomanNumerals.convert(8));
     }
+
+    @Test
+    public void testNineEqualsIx() {
+        assertEquals("IX", RomanNumerals.convert(9));
+    }
 }
