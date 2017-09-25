@@ -35,7 +35,8 @@ public class RomanNumerals {
         }
 
         for (Map.Entry<Integer, String> multiple : multiples.entrySet()) {
-            while (number > 0 && (endsWithNumber(number, multiple.getKey()) || isEvenlyDivisible(number, multiple.getKey()))) {
+            while (number > 0 && (endsWithNumber(number, multiple.getKey()) ||
+                    (isEvenlyDivisibleByTen(number) && number < 50))) {
                 romanNumeral = multiple.getValue() + romanNumeral;
                 number = number - multiple.getKey();
             }
@@ -53,8 +54,8 @@ public class RomanNumerals {
         return traverse(number, romanNumeral);
     }
 
-    private static boolean isEvenlyDivisible(int number, int key) {
-        return number % key == 0;
+    private static boolean isEvenlyDivisibleByTen(int number) {
+        return number % 10 == 0;
     }
 
     private static boolean endsWithNumber(Integer number, Integer key) {

@@ -95,4 +95,9 @@ public class RomanNumeralsTest {
     public void testFiftyEqualsL() {
         assertEquals("L", RomanNumerals.convert(50));
     }
+
+    @Test
+    public void testFiftyFourEqualsL() {
+        assertEquals("LIV", RomanNumerals.convert(54));
+    }
 }
