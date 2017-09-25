@@ -172,4 +172,14 @@ public class RomanNumeralsTest {
     public void testOneThousandEqualsM() {
         assertEquals("M", romanNumerals.convert(1000));
     }
+
+    @Test
+    public void testOneThousandFourHundredFourtyFourEqualsMcdxliv() {
+        assertEquals("MCDXLIV", romanNumerals.convert(1444));
+    }
+
+    @Test
+    public void testThreeThousandNineHundredNinetyNineEqualsMmmcmxcix() {
+        assertEquals("MMMCMXCIX", romanNumerals.convert(3999));
+    }
 }
