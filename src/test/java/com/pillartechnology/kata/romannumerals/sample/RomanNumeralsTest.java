@@ -30,4 +30,19 @@ public class RomanNumeralsTest {
     public void testFiveEqualsV() {
         assertEquals("V", RomanNumerals.convert(5));
     }
+
+    @Test
+    public void testSixEqualsVi() {
+        assertEquals("VI", RomanNumerals.convert(6));
+    }
+
+    @Test
+    public void testSevenEqualsVii() {
+        assertEquals("VII", RomanNumerals.convert(7));
+    }
+
+    @Test
+    public void testEightEqualsViii() {
+        assertEquals("VIII", RomanNumerals.convert(8));
+    }
 }
