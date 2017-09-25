@@ -1,29 +1,25 @@
 package com.pillartechnology.kata.romannumerals.sample;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class RomanNumerals {
+
+    private List<Conversion> conversions;
+
+    public RomanNumerals() {
+        conversions = Arrays.asList(new Conversion(1000, "M", 1000), new Conversion(900, "CM", 100),
+                new Conversion(500, "D", 100), new Conversion(400, "CD", 100), new Conversion(100, "C", 100),
+                new Conversion(90, "XC", 10), new Conversion(50, "L", 10), new Conversion(40, "XL", 10),
+                new Conversion(10, "X", 10), new Conversion(9, "IX", 1), new Conversion(5, "V", 1),
+                new Conversion(4, "IV", 1), new Conversion(1, "I", 1));
+    }
 
     public String convert(int number) {
         Builder romanNumeral = new Builder(number, "");
-
-        append(romanNumeral, new Conversion(1000, "M", 1000));
-
-        append(romanNumeral, new Conversion(900, "CM", 100));
-        append(romanNumeral, new Conversion(500, "D", 100));
-        append(romanNumeral, new Conversion(400, "CD", 100));
-
-        append(romanNumeral, new Conversion(100, "C", 100));
-
-        append(romanNumeral, new Conversion(90, "XC", 10));
-        append(romanNumeral, new Conversion(50, "L", 10));
-        append(romanNumeral, new Conversion(40, "XL", 10));
-
-        append(romanNumeral, new Conversion(10, "X", 10));
-
-        append(romanNumeral, new Conversion(9, "IX", 1));
-        append(romanNumeral, new Conversion(5, "V", 1));
-        append(romanNumeral, new Conversion(4, "IV", 1));
-
-        append(romanNumeral, new Conversion(1, "I", 1));
+        for (Conversion conversion : conversions) {
+            append(romanNumeral, conversion);
+        }
 
         return romanNumeral.toString();
     }
